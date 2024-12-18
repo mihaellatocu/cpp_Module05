@@ -1,9 +1,9 @@
-#include "Bureaucrat.hpp"
+#include "../header/Bureaucrat.hpp"
 
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& other)
 {
-    os << other.getName();
+    os << "Bureaucrat " <<BOLD_MAGENTA << other.getName() << RST;
     os << ", with grade ";
     os << other.getGrade();
     os << ".";
@@ -15,6 +15,7 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150){
         throw GradeTooLowException();
     else if (getGrade() < 1)
         throw GradeTooHighException();
+    std::cout << BOLD_MAGENTA << _name << RST " constructor has been created.\n";
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
@@ -22,6 +23,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
         throw GradeTooLowException();
     else if (getGrade() < 1)
         throw GradeTooHighException();
+    std::cout << BOLD_MAGENTA << _name << RST " constructor has been created.\n";
 }
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) 
 {
@@ -65,4 +67,12 @@ void Bureaucrat::decrement()
     if (_grade == 150)
         throw GradeTooLowException();
     ++_grade;
+}
+
+void Bureaucrat::signForm(Form s)
+{
+    if (s.getSign() == true)
+        std::cout <<BOLD_MAGENTA <<  this->getName() <<RST " signed " <<BOLD_BLUE << s.getName() <<RST "\n";
+    else if (s.getSign() == false)
+        std::cout << BOLD_MAGENTA << this->getName() <<RST " couldn't sign " <<BOLD_BLUE << s.getName() <<RST " because the sign is " << s.getSign() << "\n";
 }
