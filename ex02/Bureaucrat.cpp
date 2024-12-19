@@ -79,6 +79,5 @@ void Bureaucrat::signForm(AForm& s)
 
 void Bureaucrat::executeForm(AForm const & form)
 {
-
     form.execute(*this);
 }

@@ -11,7 +11,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
     if (this->getToExecute() >= executor.getGrade())
     {
-        std::cout << _target << " The file will be created.\n";
         std::string nameFile = _target + "_shrubbery";
         std::ofstream MyFile(nameFile.c_str());
         MyFile << "       #\n"
@@ -26,10 +25,11 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         << "       H\n"
         << "       H\n";
         MyFile.close();
+        std::cout << "The file has been created.\n";
     }
     else
     {
-        std::cout << "The file was not created.\n";
+        std::cout << "The file was not created. The Bureaucrat grade is: " <<executor.getGrade() << "\n";
         throw GradeTooLowException();
     }
 }
