@@ -7,18 +7,6 @@
 
 int main()
 {
-    // try {
-    //     Bureaucrat A("bureaucrat", 5);
-    //     std::cout << A << std::endl;
-
-    //     ShrubberyCreationForm C("home");
-    //     // PresidentialPardonForm C("target");
-    //     // RobotomyRequestForm C("robot");
-    //     C.execute(A);
-
-    // } catch(const std::exception& e) {
-    //     std::cerr << e.what();
-    // }
     std::cout << "******************************\n";
     Bureaucrat A("bureaucrat", 5);
     Intern RandomIntern;
@@ -31,11 +19,6 @@ int main()
         form->execute(A);
         delete form;
     }
-    
-    // form(A);
-    // if (form)
-    // {
-    //     std::cout << *form << std::endl;
-    // }
+
     return (0);
 }
